@@ -36,8 +36,8 @@ Berikut detail pesanan saya:
 Terima kasih!`;
 
     const encodedText = encodeURIComponent(text);
-    // Ganti dengan nomor WA Shotnesia yang asli jika perlu
-    const whatsappNumber = '6287774298789'; 
+    // Nomor WA Admin khusus Order
+    const whatsappNumber = '6282111947630'; 
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, '_blank');
   };
 
