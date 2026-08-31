@@ -12,6 +12,12 @@ const driveLinks = {
   // Format: 'NamaFile.pdf': 'Link Google Drive',
 };
 
+// DAFTAR LINK ORDER / WHATSAPP (Tambahkan manual di sini)
+const orderLinks = {
+  'pricelist-graduation.pdf': 'https://wa.me/6287774298789?text=Halo%20min%2C%20aku%20mau%20foto',
+  // Format: 'NamaFile.pdf': 'Link WhatsApp',
+};
+
 export default async function PdfViewer({ params }) {
   const { filename } = await params;
 
@@ -24,20 +30,21 @@ export default async function PdfViewer({ params }) {
 
   const pdfUrl = `/pdf/${pdfFilename}`;
   const driveLink = driveLinks[pdfFilename] || null;
+  const orderLink = orderLinks[pdfFilename] || null;
 
   return (
     <div className="flex flex-col h-screen w-full overflow-hidden bg-slate-50">
       <header className="flex-shrink-0 flex items-center justify-between px-4 py-3 md:px-6 md:py-4 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm z-10">
         <div className="flex items-center gap-3 sm:gap-4">
-          <Link
-            href="/"
+          <a
+            href="https://www.instagram.com/shotnesia?igsi=bmJ2MDh1MzR5N3U2"
             className="flex items-center justify-center flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-colors border border-slate-200"
-            title="Back to home"
+            title="Back to Instagram"
           >
             <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-          </Link>
+          </a>
           <div className="flex flex-col overflow-hidden">
             <h1 className="text-sm md:text-base font-semibold text-slate-900 truncate max-w-[150px] sm:max-w-xs md:max-w-md" title={pdfFilename}>
               {pdfFilename}
@@ -65,7 +72,7 @@ export default async function PdfViewer({ params }) {
       </header>
 
       <main className="flex-1 w-full bg-slate-100 relative overflow-hidden">
-        <PdfViewerClient pdfUrl={pdfUrl} driveLink={driveLink} />
+        <PdfViewerClient pdfUrl={pdfUrl} driveLink={driveLink} orderLink={orderLink} />
       </main>
     </div>
   );
