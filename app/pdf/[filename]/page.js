@@ -14,8 +14,8 @@ const driveLinks = {
 
 // DAFTAR LINK ORDER / WHATSAPP (Tambahkan manual di sini)
 const orderLinks = {
-  'pricelist-graduation.pdf': 'https://wa.me/6287774298789?text=Halo%20min%2C%20aku%20mau%20foto',
-  // Format: 'NamaFile.pdf': 'Link WhatsApp',
+  'pricelist-graduation.pdf': 'https://shotnesia.vercel.app/order-graduation',
+  // Format: 'NamaFile.pdf': 'Link WhatsApp atau Form',
 };
 
 export default async function PdfViewer({ params }) {
