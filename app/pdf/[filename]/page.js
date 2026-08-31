@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import PdfViewerClient from './PdfViewerClient';
 
 export default async function PdfViewer({ params }) {
   const { filename } = await params;
@@ -55,11 +56,7 @@ export default async function PdfViewer({ params }) {
       </header>
       
       <main className="flex-1 w-full bg-slate-800/50 relative overflow-hidden">
-        <iframe 
-          src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
-          className="absolute inset-0 w-full h-full border-none"
-          title={`PDF Preview: ${pdfFilename}`}
-        />
+        <PdfViewerClient pdfUrl={pdfUrl} />
       </main>
     </div>
   );
