@@ -8,15 +8,16 @@ import PdfViewerClient from './PdfViewerClient';
 const driveLinks = {
   'Googledrive-Naki.pdf': 'https://drive.google.com/drive/folders/1nvu1fOiv6EzQWerJM-MTcmQQz2lJAAfb?usp=drive_link',
   'Googledrive-farmasi.pdf': 'https://drive.google.com/drive/folders/1Ugv6xkgY6MROMOGmNzj4VYwXy4UAg93gg?usp=sharing',
+  'Googledrive-gekratna.pdf': 'https://drive.google.com/drive/folders/1q4wWFh6pyaUuGiYNtZWYyxriQe3qHWw3?usp=drive_link',
   // Format: 'NamaFile.pdf': 'Link Google Drive',
 };
 
 export default async function PdfViewer({ params }) {
   const { filename } = await params;
-  
+
   const pdfFilename = filename.endsWith('.pdf') ? filename : `${filename}.pdf`;
   const filePath = path.join(process.cwd(), 'public', 'pdf', pdfFilename);
-  
+
   if (!fs.existsSync(filePath)) {
     notFound();
   }
@@ -28,8 +29,8 @@ export default async function PdfViewer({ params }) {
     <div className="flex flex-col h-screen w-full overflow-hidden bg-slate-50">
       <header className="flex-shrink-0 flex items-center justify-between px-4 py-3 md:px-6 md:py-4 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm z-10">
         <div className="flex items-center gap-3 sm:gap-4">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="flex items-center justify-center flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-colors border border-slate-200"
             title="Back to home"
           >
@@ -44,11 +45,11 @@ export default async function PdfViewer({ params }) {
             <span className="text-[10px] sm:text-xs text-slate-500">PDF Preview</span>
           </div>
         </div>
-        
+
         <div>
-          <a 
-            href={pdfUrl} 
-            download 
+          <a
+            href={pdfUrl}
+            download
             className="flex items-center justify-center w-9 h-9 sm:w-auto sm:h-auto sm:px-4 sm:py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-sm transition-all shadow-md shadow-indigo-600/20 hover:shadow-lg hover:shadow-indigo-600/30"
             title="Download PDF"
           >
@@ -62,7 +63,7 @@ export default async function PdfViewer({ params }) {
           </a>
         </div>
       </header>
-      
+
       <main className="flex-1 w-full bg-slate-100 relative overflow-hidden">
         <PdfViewerClient pdfUrl={pdfUrl} driveLink={driveLink} />
       </main>
