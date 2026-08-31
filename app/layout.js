@@ -10,8 +10,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-slate-100 antialiased selection:bg-indigo-500/30`}>
+    <html lang="en">
+      <body className={`${inter.className} min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/50 to-white text-slate-900 antialiased selection:bg-indigo-500/30`}>
         {children}
       </body>
     </html>
