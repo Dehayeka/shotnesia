@@ -6,6 +6,7 @@ export default function GraduationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
+    email: '',
     whatsapp: '',
     instagram: '',
     university: '',
@@ -29,6 +30,7 @@ export default function GraduationForm() {
 Berikut detail pesanan saya:
 
 *Nama:* ${formData.fullName}
+*Email:* ${formData.email}
 *Nomor WA:* ${formData.whatsapp}
 *Instagram:* ${formData.instagram ? '@' + formData.instagram.replace('@', '') : '-'}
 *Kampus/Sekolah:* ${formData.university}
@@ -95,7 +97,33 @@ Berikut detail pesanan saya:
           </div>
         </div>
 
-        {/* 2. WHATSAPP */}
+        {/* 2. EMAIL ADDRESS */}
+        <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 border-b border-[#f0eadd] pb-6">
+          <div className="flex items-start gap-4 md:w-1/3">
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#11223f] flex items-center justify-center text-[#e5d4a4]">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">2. Email Address</h3>
+              <p className="text-xs text-slate-500 mt-0.5">Alamat email aktif</p>
+            </div>
+          </div>
+          <div className="md:w-2/3 mt-2 md:mt-0">
+            <input 
+              type="email" 
+              name="email"
+              required
+              placeholder="Masukkan email Anda" 
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-white border border-[#eae0cc] rounded-md text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#c8a97e] focus:border-[#c8a97e] transition-colors"
+            />
+          </div>
+        </div>
+
+        {/* 3. WHATSAPP */}
         <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 border-b border-[#f0eadd] pb-6">
           <div className="flex items-start gap-4 md:w-1/3">
             <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#11223f] flex items-center justify-center text-[#e5d4a4]">
@@ -104,7 +132,7 @@ Berikut detail pesanan saya:
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">2. Nomor WhatsApp</h3>
+              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">3. Nomor WhatsApp</h3>
               <p className="text-xs text-slate-500 mt-0.5">Nomor yang aktif/bisa dihubungi</p>
             </div>
           </div>
@@ -133,7 +161,7 @@ Berikut detail pesanan saya:
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">3. Instagram</h3>
+              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">4. Instagram</h3>
               <p className="text-xs text-slate-500 mt-0.5">(Opsional)</p>
             </div>
           </div>
@@ -163,7 +191,7 @@ Berikut detail pesanan saya:
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">4. Universitas / Sekolah</h3>
+              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">5. Universitas / Sekolah</h3>
               <p className="text-xs text-slate-500 mt-0.5">Nama institusi Anda</p>
             </div>
           </div>
@@ -190,7 +218,7 @@ Berikut detail pesanan saya:
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">5. Layanan</h3>
+              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">6. Layanan</h3>
               <p className="text-xs text-slate-500 mt-0.5">Pilih paket layanan</p>
             </div>
           </div>
@@ -215,7 +243,7 @@ Berikut detail pesanan saya:
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">6. Jadwal Sesi</h3>
+              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">7. Jadwal Sesi</h3>
               <p className="text-xs text-slate-500 mt-0.5">Tanggal & Pilihan Waktu</p>
             </div>
           </div>
@@ -261,7 +289,7 @@ Berikut detail pesanan saya:
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">7. Tempat</h3>
+              <h3 className="text-sm font-semibold text-[#11223f] uppercase tracking-wider">8. Tempat</h3>
               <p className="text-xs text-slate-500 mt-0.5">Lokasi pemotretan</p>
             </div>
           </div>
