@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 export default function GraduationForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     whatsapp: '',
@@ -19,8 +20,9 @@ export default function GraduationForm() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     // Generate WhatsApp text
     const text = `Halo Shotnesia, saya ingin memesan layanan Graduation!
@@ -37,7 +39,25 @@ Berikut detail pesanan saya:
 
     const encodedText = encodeURIComponent(text);
     const whatsappNumber = '6287774298789'; 
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, '_blank');
+    
+    try {
+      await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'Order Graduation',
+          formData,
+          text
+        }),
+      });
+    } catch (error) {
+      console.error("Gagal mengirim email notifikasi:", error);
+    } finally {
+      setIsSubmitting(false);
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, '_blank');
+    }
   };
 
   return (
@@ -256,12 +276,15 @@ Berikut detail pesanan saya:
         <div className="mt-6 flex justify-center border-t border-[#f0eadd] pt-8">
           <button 
             type="submit"
-            className="group flex items-center gap-3 px-12 py-4 bg-[#11223f] hover:bg-[#1a325a] text-[#e5d4a4] font-semibold tracking-widest text-sm rounded transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto justify-center"
+            disabled={isSubmitting}
+            className="group flex items-center gap-3 px-12 py-4 bg-[#11223f] hover:bg-[#1a325a] disabled:bg-slate-400 disabled:cursor-not-allowed text-[#e5d4a4] font-semibold tracking-widest text-sm rounded transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto justify-center"
           >
-            ORDER SEKARANG
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            {isSubmitting ? 'MEMPROSES...' : 'ORDER SEKARANG'}
+            {!isSubmitting && (
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            )}
           </button>
         </div>
 
