@@ -62,7 +62,8 @@ Terima kasih!`;
       console.error("Gagal mengirim email notifikasi:", error);
     } finally {
       setIsSubmitting(false);
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, '_blank');
+      // Menggunakan window.location.href alih-alih window.open agar tidak diblokir oleh pop-up blocker browser
+      window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
     }
   };
 

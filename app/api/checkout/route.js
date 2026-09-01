@@ -22,10 +22,11 @@ export async function POST(request) {
       },
     });
 
-    // Opsi Email yang akan dikirim ke Client
+    // Opsi Email yang akan dikirim ke Client (dan BCC ke Admin)
     const mailOptions = {
       from: `"Shotnesia" <${process.env.GMAIL_USER}>`, // Akan terlihat dikirim dari Gmail Anda
       to: clientEmail, // Dikirim ke alamat email client
+      bcc: process.env.GMAIL_USER, // Tembusan (BCC) ke email admin agar admin punya salinan
       subject: `Terima Kasih! Konfirmasi Pesanan - ${formType}`,
       text: `Halo ${formData?.fullName || 'Kak'},\n\nTerima kasih telah melakukan pemesanan di Shotnesia. Berikut adalah rincian form yang baru saja Anda isi:\n\n${text}\n\nKami telah menerima pesanan Anda dan akan segera membalas pesan WhatsApp Anda untuk konfirmasi lebih lanjut.\n\nSalam Hangat,\nTim Shotnesia`,
       html: `<div style="font-family: sans-serif; color: #333; max-width: 600px; margin: auto;">
