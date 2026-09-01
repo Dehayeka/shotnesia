@@ -42,7 +42,7 @@ Terima kasih!`;
     const whatsappNumber = '6282111947630'; 
     
     try {
-      await fetch('/api/checkout', {
+      const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,6 +53,11 @@ Terima kasih!`;
           text
         }),
       });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error API Resend:", errorData);
+      }
     } catch (error) {
       console.error("Gagal mengirim email notifikasi:", error);
     } finally {

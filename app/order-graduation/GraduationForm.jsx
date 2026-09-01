@@ -41,7 +41,7 @@ Berikut detail pesanan saya:
     const whatsappNumber = '6287774298789'; 
     
     try {
-      await fetch('/api/checkout', {
+      const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,6 +52,11 @@ Berikut detail pesanan saya:
           text
         }),
       });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error API Resend:", errorData);
+      }
     } catch (error) {
       console.error("Gagal mengirim email notifikasi:", error);
     } finally {
