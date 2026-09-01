@@ -58,13 +58,19 @@ Berikut detail pesanan saya:
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Error API Resend:", errorData);
+        alert("Gagal mengirim email: " + JSON.stringify(errorData));
+      } else {
+        // Hanya untuk debugging, beritahu bahwa sukses
+        // alert("Sistem: Email sukses dikirim ke antrean server!");
       }
     } catch (error) {
       console.error("Gagal mengirim email notifikasi:", error);
+      alert("Error jaringan / sistem: " + error.message);
     } finally {
       setIsSubmitting(false);
-      // Menggunakan window.location.href alih-alih window.open agar tidak diblokir oleh pop-up blocker browser
-      window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+      setTimeout(() => {
+        window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+      }, 500);
     }
   };
 
