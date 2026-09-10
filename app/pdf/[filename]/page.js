@@ -9,6 +9,7 @@ const driveLinks = {
   'Googledrive-Naki.pdf': 'https://drive.google.com/drive/folders/1nvu1fOiv6EzQWerJM-MTcmQQz2lJAAfb?usp=drive_link',
   'Googledrive-farmasi.pdf': 'https://drive.google.com/drive/folders/1Ugv6xkgY6MROMOGmNzj4VYwXy4UAg93gg?usp=sharing',
   'Googledrive-gekratna.pdf': 'https://drive.google.com/drive/folders/1q4wWFh6pyaUuGiYNtZWYyxriQe3qHWw3?usp=drive_link',
+  'Googledrive-Prof.-Made.pdf': 'https://drive.google.com/drive/folders/1XeS055pjaR0W4zqOI7iDkqJov9PWCC8w?usp=sharing',
   // Format: 'NamaFile.pdf': 'Link Google Drive',
 };
 
