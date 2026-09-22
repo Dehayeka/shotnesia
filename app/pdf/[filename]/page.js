@@ -10,6 +10,8 @@ const driveLinks = {
   'Googledrive-farmasi.pdf': 'https://drive.google.com/drive/folders/1Ugv6xkgY6MROMOGmNzj4VYwXy4UAg93gg?usp=sharing',
   'Googledrive-gekratna.pdf': 'https://drive.google.com/drive/folders/1q4wWFh6pyaUuGiYNtZWYyxriQe3qHWw3?usp=drive_link',
   'Googledrive-Prof.-Made.pdf': 'https://drive.google.com/drive/folders/1XeS055pjaR0W4zqOI7iDkqJov9PWCC8w?usp=sharing',
+  'Googledrive-gia.pdf': 'https://drive.google.com/drive/folders/12xIo_oIfPXiSpMxKEGu_s9RE0l_g-ANP?usp=drive_link',
+
   // Format: 'NamaFile.pdf': 'Link Google Drive',
 };
 
