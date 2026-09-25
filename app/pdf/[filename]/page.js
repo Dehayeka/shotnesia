@@ -13,7 +13,7 @@ const driveLinks = {
   'Googledrive-gia.pdf': 'https://drive.google.com/drive/folders/12xIo_oIfPXiSpMxKEGu_s9RE0l_g-ANP?usp=drive_link',
   'Googledrive-haikal.pdf': 'https://drive.google.com/drive/folders/1JfQvhM5Xx5x3iDPXfHjAlH2wxxGPyayv?usp=sharing',
   'Googledrive-Edra.pdf': 'https://drive.google.com/drive/folders/1q5bqubgQapOqzwrjAt6xL3bGVNWaYSlo?usp=sharing',
-
+  'Googledrive-eng.pdf': 'https://drive.google.com/drive/folders/1Iqs8xcTY1eUbTJnUDQuNN1uNZe4-01Ju?usp=sharing',
 
   // Format: 'NamaFile.pdf': 'Link Google Drive',
 };
